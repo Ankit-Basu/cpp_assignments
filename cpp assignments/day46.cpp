@@ -1,3 +1,4 @@
+//Question 1
 #include <iostream>
 using namespace std;
 
@@ -30,7 +31,7 @@ int main() {
 
 
 
-
+//Question 2
 #include <iostream>
 using namespace std;
 
@@ -60,7 +61,7 @@ int main() {
 
 
 
-
+//Question 3
 #include <iostream>
 using namespace std;
 
