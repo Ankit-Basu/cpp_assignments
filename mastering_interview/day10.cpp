@@ -1,6 +1,4 @@
-Here is the C++ solution with `using namespace std` included:
-
-```cpp
+//Question 10
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -49,4 +47,3 @@ int main() {
 
     return 0;
 }
-```
