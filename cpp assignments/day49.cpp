@@ -25,3 +25,39 @@ int main() {
     for (int num : vec2) cout << num << " ";
     return 0;
 }
+
+
+//Qurstion 2
+#include <iostream>
+#include <vector>
+#include <set>
+using namespace std;
+
+pair<set<int>, set<int>> findUnionAndIntersection(vector<int>& arr1, vector<int>& arr2) {
+    set<int> unionSet, intersectionSet;
+    for (int num : arr1) unionSet.insert(num);
+    for (int num : arr2) {
+        if (unionSet.count(num)) intersectionSet.insert(num);
+        unionSet.insert(num);
+    }
+    return {unionSet, intersectionSet};
+}
+
+int main() {
+    vector<int> arr1 = {1, 2, 3}, arr2 = {2, 3, 4};
+    auto [unionSet, intersectionSet] = findUnionAndIntersection(arr1, arr2);
+    cout << "Union = {";
+    for (auto it = unionSet.begin(); it != unionSet.end(); ++it) {
+        if (it != unionSet.begin()) cout << ", ";
+        cout << *it;
+    }
+    cout << "}" << endl;
+    cout << "Intersection = {";
+    for (auto it = intersectionSet.begin(); it != intersectionSet.end(); ++it) {
+        if (it != intersectionSet.begin()) cout << ", ";
+        cout << *it;
+    }
+    cout << "}" << endl;
+    return 0;
+}
+
