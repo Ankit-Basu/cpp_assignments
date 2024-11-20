@@ -61,3 +61,30 @@ int main() {
     return 0;
 }
 
+
+//Question 3
+#include <iostream>
+#include <map>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+vector<pair<string, int>> sortMapByValueDescending(const map<string, int>& inputMap) {
+    vector<pair<string, int>> result(inputMap.begin(), inputMap.end());
+    sort(result.begin(), result.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
+        return a.second > b.second;
+    });
+    return result;
+}
+
+int main() {
+    map<string, int> map1 = {{"Alice", 50}, {"Bob", 70}, {"Charlie", 60}};
+    map<string, int> map2 = {{"X", 100}, {"Y", 80}};
+    auto sorted1 = sortMapByValueDescending(map1);
+    auto sorted2 = sortMapByValueDescending(map2);
+    for (const auto& [key, value] : sorted1) cout << "{" << key << ", " << value << "} ";
+    cout << endl;
+    for (const auto& [key, value] : sorted2) cout << "{" << key << ", " << value << "} ";
+    return 0;
+}
+
