@@ -27,3 +27,32 @@ int main() {
 
     return 0;
 }
+
+//Question 2
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int N, X;
+    cin >> N;
+    vector<int> scores(N);
+    for (int i = 0; i < N; ++i) cin >> scores[i];
+    cin >> X;
+
+    cout << count(scores.begin(), scores.end(), X) << endl;
+
+    sort(scores.rbegin(), scores.rend());
+    for (int score : scores) cout << score << " ";
+    cout << endl;
+
+    cout << round(accumulate(scores.begin(), scores.end(), 0.0) / N) << endl;
+    cout << scores.front() << endl;
+    cout << scores.back() << endl;
+
+    return 0;
+}
+
