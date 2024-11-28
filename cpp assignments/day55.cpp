@@ -59,3 +59,24 @@ Node* insert(Node* node, int key) {
     return node;
 }
 
+void preOrder(Node* node) {
+    if (node) {
+        cout << "Key: " << node->key << ", Height: " << node->height
+             << ", Balance Factor: " << getBalanceFactor(node) << endl;
+        preOrder(node->left);
+        preOrder(node->right);
+    }
+}
+
+int main() {
+    Node* root = nullptr;
+    int n, value;
+    cin >> n;
+    while (n--) {
+        cin >> value;
+        root = insert(root, value);
+    }
+    cout << "Pre-Order Traversal:" << endl;
+    preOrder(root);
+    return 0;
+}
