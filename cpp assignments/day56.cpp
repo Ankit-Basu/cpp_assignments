@@ -58,3 +58,21 @@ Node* insert(Node* node, int key) {
     }
     return node;
 }
+
+void rangeSearch(Node* root, int L, int R, vector<int>& result) {
+    if (!root) return;
+    if (root->key > L) rangeSearch(root->left, L, R, result);
+    if (root->key >= L && root->key <= R) result.push_back(root->key);
+    if (root->key < R) rangeSearch(root->right, L, R, result);
+}
+
+int main() {
+    Node* root = nullptr;
+    vector<int> elements = {20, 15, 25, 10, 18, 22, 30};
+    for (int val : elements) root = insert(root, val);
+    int L = 15, R = 25;
+    vector<int> result;
+    rangeSearch(root, L, R, result);
+    for (int val : result) cout << val << " ";
+    return 0;
+}
